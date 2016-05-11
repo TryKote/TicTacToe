@@ -35,8 +35,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/area.h" />
+		<Unit filename="include/tcore.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/area.cpp" />
+		<Unit filename="src/tcore.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

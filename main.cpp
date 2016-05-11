@@ -2,6 +2,7 @@
 #include <ncurses.h>
 #include <cstring>
 #include "area.h"
+#include "tcore.h"
 
 using namespace std;
 
@@ -39,6 +40,8 @@ void drowOnSquare(int x, int y, cell **map) {
 int main()
 {
     area tictactoe;
+    cell **N = tictactoe.getMap();
+    tcore game(N);
     initscr();
     unsigned int maxX, maxY;
     const char* msg = "TicTacToe";
@@ -46,9 +49,11 @@ int main()
     getmaxyx(stdscr, maxY, maxX);
     mvwprintw(stdscr, 1, (maxX-strlen(msg))/2, msg);
 
-    cell **N = tictactoe.getMap();
     tictactoe.set(1,1,1);
+    tictactoe.set(1,0,1);
+    tictactoe.set(2,0,1);
     drowOnSquare(2,2, N);
+    if (game.isGameOver().isGameOver) mvprintw(6,6, "Game over!");
 
     getch();
     endwin();

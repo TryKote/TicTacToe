@@ -21,5 +21,7 @@ cell **area::getMap() {
 
 area::~area()
 {
-    //dtor
+    for (int i = 0; i < 3; i++)
+        delete floor[i];
+    delete[] floor;
 }
