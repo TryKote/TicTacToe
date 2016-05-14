@@ -344,12 +344,13 @@ void tcore::play() {
                     floor[curX_onFloor][curY_onFloor].value = true;
                     drowOnSquare(SQUARE_X, SQUARE_Y, this->floor);
                     //getch();
-                    if(this->step()) {
-                        mvprintw(16,10,"Step ++");
-                    } else {
-                        mvprintw(15,10, "Step go on (-;-)");
-                        mvprintw(16,10,"Step --");
-                    }
+                    if (!this->isGameOver().isGameOver)
+                        if(this->step()) {
+                            mvprintw(16,10,"Step ++");
+                        } else {
+                            mvprintw(15,10, "Step go on (-;-)");
+                            mvprintw(16,10,"Step --");
+                        }
                     drowOnSquare(SQUARE_X, SQUARE_Y, this->floor);
 
                 }
@@ -358,7 +359,6 @@ void tcore::play() {
                     mvprintw(21, 10, "Key pressed: %d", tempkey);
                     move(curY, curX);*/
             }
-
 
             if (!this->isGameOver().isGameOver) {
                 mvprintw(6,6, "Game NOT over!");
