@@ -16,6 +16,7 @@ class tcore
         ~tcore();
         win isGameOver();
         void play();
+        void play(int x, int y);
 
     protected:
 
@@ -23,6 +24,8 @@ class tcore
         cell **floor;
         chtype CellToChar(cell some);
         void drowOnSquare(int x, int y, cell **map);
+        bool deadheat = false;
+        bool step();
 };
 
 #endif // TCORE_H

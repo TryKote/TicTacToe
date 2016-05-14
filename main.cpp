@@ -24,6 +24,7 @@ int main()
     //if (game.isGameOver().isGameOver) mvprintw(6,6, "Game over!");
     game.play();
 
+    getch();
     endwin();
     return 0;
 }
