@@ -11,20 +11,21 @@ using namespace std;
 int main()
 {
     area tictactoe;
-    cell **N = tictactoe.getMap();
-    tcore game(N);
     initscr();
+    start_color();
+    init_pair (1, COLOR_WHITE, COLOR_RED); //red text, black background
     unsigned int maxX, maxY;
     const char* msg = "TicTacToe";
     box(stdscr, '|', '-');
     getmaxyx(stdscr, maxY, maxX);
+    attron(COLOR_PAIR(1));
+    attron(A_BOLD);
     mvwprintw(stdscr, 1, (maxX-strlen(msg))/2, msg);
-
-    //drowOnSquare(2,2, N);
-    //if (game.isGameOver().isGameOver) mvprintw(6,6, "Game over!");
-    game.play();
-
-    getch();
+    attroff(COLOR_PAIR(1));
+    attroff(A_BOLD);
+    tcore game(tictactoe.getMap(), maxX, maxY);
+    game.play(); //this is the game
+    //getch();
     endwin();
     return 0;
 }
